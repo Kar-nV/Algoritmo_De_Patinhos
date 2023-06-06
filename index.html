@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Teste dos Patinhos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<h1>Teste dos Patinhos 🦆</h1>
+<img src="https://i.pinimg.com/564x/47/58/de/4758defb01c46a145d7ab515dda8634b.jpg">
+<div class="form">
+    <label for="patinhos">Insira aqui quantos patinhos foram passear:</label>
+    <input type="number" id="qntInserida" />
+    <button onclick="lerNumero()">OK</button>
+</div>
+<h2> Resultado:</h2>
+<div>
+<p id="resposta"></p>
+</div>
+<script>
+function lerNumero() {
+  var input = document.getElementById("qntInserida");
+  var numeroInicial = parseInt(input.value);
+
+  if (isNaN(numeroInicial) || !Number.isInteger(numeroInicial)) {
+    document.getElementById("resposta").innerHTML = "<p>Insira um número inteiro.</p>";
+    return;
+  }
+  
+  var numeroAtual = numeroInicial;
+  var respostaInicial = "";
+  var respostaMamãe = "";
+  var respostaNenhum = "";
+  var respostaFinal = "";
+  var resposta = "";
+  
+  while (numeroAtual >= 0) {
+    if (numeroAtual === 1) {
+      resposta += respostaNenhum + "1 patinho foi passear além das montanhas para brincar. A mamãe gritou: Quá, quá, quá, quá, mas nenhum patinho voltou de lá.";
+    } else if (numeroAtual === 0) {
+      resposta += respostaMamãe + "Puxa! A mamãe patinha ficou tão triste naquele dia... Aonde será que estavam seus filhotinhos? Mas essa história vai ter um final feliz! Sabe por quê?";
+    } else {
+      resposta += respostaInicial + numeroAtual + " patinhos foram passear além das montanhas para brincar. A mamãe gritou: Quá, quá, quá, quá, mas só " + (numeroAtual - 1) + " patinhos voltaram de lá.";
+    }
+    
+    resposta += "<br><br>";
+    numeroAtual--;
+  }
+  
+  resposta += respostaFinal + "A mamãe patinha foi procurar além das montanhas na beira do mar. A mamãe gritou: Quá, quá, quá, quá, e os " + numeroInicial + " voltaram de lá.";
+  document.getElementById("resposta").innerHTML = "<p>" + resposta.replace( "</p><p>") + "<br></p>";
+}
+
+</script>
+</body>
+</html>
