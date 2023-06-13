@@ -6,30 +6,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Teste dos Patinhos</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+    <link href="https://unpkg.com/@tailwindcss/custom-forms/dist/custom-forms.min.css" rel="stylesheet" />
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+      html {
+        font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      }
+ 
+      img {
+        width: 150px;
+        border-radius: 700px;
+        position: static;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .form {
+        text-align: center;
+        margin-top: 20px;
+      }
+      
+      label {
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+      }
+     
+      #resposta {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #444;
+      }
+    </style>
+
 </head>
-<h1>Teste dos Patinhos 🦆</h1>
-<img src="https://i.pinimg.com/564x/47/58/de/4758defb01c46a145d7ab515dda8634b.jpg">
-<div class="form">
-    <label for="patinhos">Insira aqui quantos patinhos foram passear:</label>
-    <input type="number" id="qntInserida" />
-    <button onclick="lerNumero()">OK</button>
-</div>
-<h2> Resultado:</h2>
-<div>
-<p id="resposta"></p>
-</div>
+
+<body style="background-color: #fceab2" >
+<div class="container pt-24 md:pt-36 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+  <div class="flex flex-col w-full  justify-center lg:items-center overflow-y-hidden">
+    <h1 class="my-4 text-3xl md:text-5xl text-white opacity-75 font-bold leading-tight text-center md:text-center">
+      <span class="bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-orange-500 to-yellow-500">
+       Teste dos Patinhos 🦆</span>
+    </h1>
+
+  <div>
+    <img src="https://i.pinimg.com/564x/47/58/de/4758defb01c46a145d7ab515dda8634b.jpg">
+  </div>
+
+    <p class="leading-normal text-base md:text-2xl mb-8 text-center md:text-left">
+      Insira um número abaixo para cantar junto com a música!
+    </p>
+
+    <form class="bg-gray-900 opacity-75 w-full shadow-lg rounded-lg px-8 pt-6 pb-8 mb-4">
+      <div class="mb-4">
+        <label class="block text-blue-300 py-2 font-bold mb-2" for="number">
+         Digite aqui quantos patinhos foram passear:
+        </label>
+        <input
+          class="shadow appearance-none border rounded w-full p-3 text-gray-700 leading-tight focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
+          id="qntInserida"
+          type="patinhos"
+          placeholder="Insira aqui"
+        />
+      </div>
+
+      <div class="flex items-center justify-center pt-4">
+        <button
+          class="bg-gradient-to-r from-purple-800 to-green-500 hover:from-pink-500 hover:to-green-500 text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
+          type="button" onclick="lerNumero()"
+        >
+        Resultado
+        </button>
+      </div>
+    </form>
+  </div>
+  <div>
+  <pform class= "block border-hidden bg-gray-50 opacity-75 w-full shadow-lg rounded-lg px-8 pt-6 pb-8 mb-4 " id="resposta"></p>
+</div> 
+
 <script>
 function lerNumero() {
-  var input = document.getElementById("qntInserida");
-  var numeroInicial = parseInt(input.value);
+  var numero = document.getElementById("qntInserida");
+  var numeroInicial = parseInt(numero.value);
 
-  if (isNaN(numeroInicial) || !Number.isInteger(numeroInicial)) {
+  if (isNaN(numeroInicial) || !Number.isInteger(numeroInicial)|| numeroInicial <= 0) {
     document.getElementById("resposta").innerHTML = "<p>Insira um número inteiro.</p>";
-    return;
+    return; 
   }
   
-  var numeroAtual = numeroInicial;
+  var numeroAtual = numeroInicial; 
   var respostaInicial = "";
   var respostaMamãe = "";
   var respostaNenhum = "";
@@ -52,7 +121,6 @@ function lerNumero() {
   resposta += respostaFinal + "A mamãe patinha foi procurar além das montanhas na beira do mar. A mamãe gritou: Quá, quá, quá, quá, e os " + numeroInicial + " voltaram de lá.";
   document.getElementById("resposta").innerHTML = "<p>" + resposta.replace( "</p><p>") + "<br></p>";
 }
-
 </script>
 </body>
 </html>
