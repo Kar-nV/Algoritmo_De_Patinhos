@@ -17,6 +17,6 @@ Resposta Dinâmica: O JavaScript cuida da lógica para contar a história com ba
 
 Como Usar:
 
-° Abra o arquivo index.html em um navegador web.
-° Insira um número no campo de entrada.
-° Clique no botão "Resultado" e divirta-se com a história dos patinhos!
+1° Abra o arquivo index.html em um navegador web.
+2° Insira um número no campo de entrada.
+3° Clique no botão "Resultado" e divirta-se com a história dos patinhos!
